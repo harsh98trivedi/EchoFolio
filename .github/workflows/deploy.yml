@@ -46,9 +46,13 @@ jobs:
         # We use a fallback to /RepoName if base_path is empty to ensure relative_url works
         run: |
           BASE_PATH="${{ steps.pages.outputs.base_path }}"
-          if [ -z "$BASE_PATH" ]; then
-            BASE_PATH="/${{ github.event.repository.name }}"
+          REPO_NAME="${{ github.event.repository.name }}"
+          
+          # Fallback only if base_path is empty AND repo name does NOT end with .github.io
+          if [[ -z "$BASE_PATH" && "$REPO_NAME" != *".github.io" ]]; then
+            BASE_PATH="/$REPO_NAME"
           fi
+          
           echo "Building with baseurl: $BASE_PATH"
           bundle exec jekyll build --baseurl "$BASE_PATH"
         env:

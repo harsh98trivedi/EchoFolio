@@ -12,7 +12,7 @@
         {% unless page.url contains 'contact' or page.url contains '404' %}
         <div class="text-center mb-24 fade-up">
             <h2 class="text-5xl md:text-8xl font-display font-bold mb-8">Let's work together.</h2>
-                <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform magnetic">
+                <a href="{{ '/contact' | relative_url }}" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform magnetic">
                     Start a conversation
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>
@@ -23,7 +23,7 @@
             
             <!-- Col 1: Brand -->
             <div class="space-y-4">
-                <a href="/" class="block w-8 h-8 invert brightness-0">
+                <a href="{{ '/' | relative_url }}" class="block w-8 h-8 invert brightness-0">
                     <object data="{{ '/assets/img/icon.svg' | relative_url }}" type="image/svg+xml" class="w-full h-full pointer-events-none"></object>
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
