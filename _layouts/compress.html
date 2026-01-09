@@ -1,0 +1,59 @@
+---
+# compress.html
+# Documentation: http://jch.penibelst.de/
+---
+{% if site.compress_html.ignore.envs contains jekyll.environment %}
+  {{ content }}
+{% else %}
+  {% capture _content %}
+    {{ content }}
+  {% endcapture %}
+  {% assign _profile = site.compress_html.profile %}
+  {% if _profile %}
+    {% assign _endings = site.compress_html.endings[_profile] %}
+    {% assign _startings = site.compress_html.startings[_profile] %}
+  {% else %}
+    {% assign _endings = site.compress_html.endings %}
+    {% assign _startings = site.compress_html.startings %}
+  {% endif %}
+  {% if site.compress_html.blanklines %}
+    {% assign _blanklines = site.compress_html.blanklines %}
+  {% else %}
+    {% assign _blanklines = false %}
+  {% endif %}
+  {% if site.compress_html.comments %}
+    {% assign _comments = site.compress_html.comments %}
+  {% else %}
+    {% assign _comments = false %}
+  {% endif %}
+  {% assign _content = _content | split: ' ' | join: ' ' %}
+  {% for _element in _endings %}
+    {% assign _content = _content | split: _element[0] | join: _element[1] %}
+  {% endfor %}
+  {% for _element in _startings %}
+    {% assign _content = _content | split: _element[0] | join: _element[1] %}
+  {% endfor %}
+  {% if _comments != true %}
+    {% assign _content = _content | split: '<!--' %}
+    {% for _element in _content %}
+      {% assign _comment = _element | split: '-->' | first %}
+      {% if _comment.size != _element.size %}
+        {% capture _comment %}<!--{{ _comment }}-->{% endcapture %}
+        {% assign _content = _content | replace: _comment, '' %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if _blanklines != true %}
+    {% assign _content = _content | split: '
+' %}
+    {% for _element in _content %}
+      {% assign _line = _element | strip %}
+      {% if _line != '' %}
+        {% assign _lines = _lines | push: _element %}
+      {% endif %}
+    {% endfor %}
+    {% assign _content = _lines | join: '
+' %}
+  {% endif %}
+  {{ _content }}
+{% endif %}

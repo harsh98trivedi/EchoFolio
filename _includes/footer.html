@@ -1,0 +1,124 @@
+<footer class="bg-black/90 pt-24 pb-12 border-t border-white/10 relative overflow-hidden" id="footer">
+    <!-- GitHub Stats Data Script -->
+    <script>
+        window.githubUsername = "{{ site.data.owner.config.github_username }}";
+    </script>
+    <script src="/assets/js/github.js" type="module" defer></script>
+
+    <div class="container mx-auto px-6 relative z-10">
+        
+        <!-- Top Section: CTA -->
+        <!-- Top Section: CTA (Hidden on Contact Page and 404) -->
+        {% unless page.url contains 'contact' or page.url contains '404' %}
+        <div class="text-center mb-24 fade-up">
+            <h2 class="text-5xl md:text-8xl font-display font-bold mb-8">Let's work together.</h2>
+                <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform magnetic">
+                    Start a conversation
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+        </div>
+        {% endunless %}
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-white/10 pt-16">
+            
+            <!-- Col 1: Brand -->
+            <div class="space-y-4">
+                <a href="/" class="block w-8 h-8 invert brightness-0">
+                    <object data="/assets/img/icon.svg" type="image/svg+xml" class="w-full h-full pointer-events-none"></object>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                    {{ site.data.owner.bio_short }}
+                </p>
+            </div>
+
+            <!-- Col 2: Sitemap -->
+            <div>
+                <h4 class="font-bold text-white mb-6">Sitemap</h4>
+                <ul class="space-y-3">
+                    {% for item in site.data.owner.navigation limit:5 %}
+                    <li>
+                        <a href="{{ item.url | relative_url }}" class="text-gray-400 hover:text-white transition-colors relative group">
+                            {{ item.title }}
+                            <span class="absolute left-0 -bottom-1 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Col 3: Socials -->
+            <div>
+                <h4 class="font-bold text-white mb-6">Socials</h4>
+                <ul class="space-y-3">
+                     {% for social in site.data.owner.socials limit:4 %}
+                     <li>
+                        <a href="{{ social[1] }}" target="_blank" class="text-gray-400 hover:text-white transition-colors capitalize flex items-center gap-2 group">
+                            <!-- Icon Logic -->
+                            {% assign platform = social[0] | downcase %}
+                            {% assign icon_class = 'fa-solid fa-link' %}
+                            
+                            {% if platform == 'twitter' or platform == 'x' %}
+                                {% assign icon_class = 'fab fa-x-twitter' %}
+                            {% elsif platform == 'github' %}
+                                {% assign icon_class = 'fab fa-github' %}
+                            {% elsif platform == 'linkedin' %}
+                                {% assign icon_class = 'fab fa-linkedin' %}
+                            {% elsif platform == 'instagram' %}
+                                {% assign icon_class = 'fab fa-instagram' %}
+                            {% endif %}
+                            
+                            <i class="{{ icon_class }} w-4 h-[1.125rem] text-center"></i>
+                            {{ social[0] }}
+                        </a>
+                     </li>
+                     {% endfor %}
+                     
+                     <!-- RSS Link -->
+                     <li>
+                        <a href="{{ '/feed.xml' | relative_url }}" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                            <i class="fas fa-rss w-4 h-[1.125rem] text-center"></i>
+                            Subscribe via RSS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Popular (Simplified) -->
+            {% if site.data.owner.config.github_username %}
+            <div>
+                <h4 class="font-bold text-white mb-6">Popular</h4>
+                <div id="github-repos" class="space-y-4 text-sm text-gray-400">
+                    <!-- Loading State -->
+                    <div class="animate-pulse h-4 bg-white/10 rounded w-3/4"></div>
+                    <div class="animate-pulse h-4 bg-white/10 rounded w-1/2"></div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="flex flex-col md:flex-row justify-between items-center pt-16 mt-16 border-t border-white/5 text-gray-600 text-xs font-mono uppercase tracking-widest relative">
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.data.owner.name }}</p>
+            <div class="flex items-center gap-2">
+                <span>Designed & Built with ❤️ by </span>
+                <a href="https://harsh98trivedi.github.io" class="w-4 h-4 invert brightness-0 hover:opacity-80 transition-opacity">
+                    <img src="/assets/img/icon.svg" alt="HT" class="w-full h-full">
+                </a>
+            </div>
+            
+            <!-- Back to Top (Fixed Position) -->
+            <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 p-3 md:bottom-8 md:right-8 md:p-4 bg-white/10 rounded-full hover:bg-white text-white hover:text-black transition-all duration-300 opacity-0 translate-y-10 pointer-events-none z-50 shadow-2xl backdrop-blur-md" aria-label="Back to top">
+                <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+            </button>
+            <script>
+                const backToTopBtn = document.getElementById('back-to-top');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 500) {
+                        backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</footer>

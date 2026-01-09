@@ -1,0 +1,54 @@
+<section class="py-32 border-t border-white/5" id="projects">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-between items-end mb-20 fade-up">
+            <h2 class="text-5xl md:text-7xl font-display font-bold">Selected Works</h2>
+            <a href="/projects" class="hidden md:flex items-center gap-2 text-lg hover:text-primary transition-colors magnetic">
+                View All 
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+            {% for project in site.data.projects limit:4 %}
+            <article class="group cursor-pointer fade-up">
+                <div class="relative overflow-hidden rounded-2xl aspect-video mb-8">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                    <img 
+                        src="{{ project.image }}" 
+                        alt="{{ project.title }}" 
+                        loading="lazy"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                    >
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute top-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-2 group-hover:translate-y-0">
+                        <span class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium">
+                            {{ project.tags[0] }}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:underline decoration-1 underline-offset-4">{{ project.title }}</h3>
+                        <p class="text-gray-400 text-lg">{{ project.description }}</p>
+                    </div>
+                    <div class="h-10 w-10 flex items-center justify-center rounded-full border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0">
+                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+                <!-- Full Card Link -->
+                <a href="{{ project.live_url }}" class="absolute inset-0 z-30"></a>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <div class="mt-16 text-center md:hidden">
+            <a href="/projects" class="inline-flex items-center gap-2 text-lg hover:text-primary transition-colors">
+                View All Works
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
+    </div>
+</section>
+

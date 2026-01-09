@@ -1,0 +1,112 @@
+<section id="technical-arsenal" class="py-32 relative bg-[#050505] overflow-hidden">
+    
+    <!-- Dynamic Background Grid -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 opacity-20" 
+             style="background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 30px 30px; mask-image: radial-gradient(circle at center, black 40%, transparent 80%);">
+        </div>
+        <!-- Moving Orbs -->
+        <div class="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl opacity-20 animate-pulse-slow"></div>
+        <div class="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1s;"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        
+        <!-- Section Header -->
+        <div class="mb-20 text-center fade-up max-w-2xl mx-auto">
+            <h2 class="text-6xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-400 to-gray-800 tracking-tighter mb-6 relative inline-block">
+                Tech Stack
+            </h2>
+            <p class="text-gray-400 font-mono text-sm uppercase tracking-[0.2em] mb-8">Engineering & Tools</p>
+            <p class="text-gray-400 leading-relaxed">
+                A curated list of languages, frameworks, and tools I use to build scalable, high-performance digital solutions. From frontend finesse to backend robustness.
+            </p>
+        </div>
+
+
+        <!-- Interactive Skills Grid -->
+        <div id="arsenal-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+            {% for category in site.data.owner.skills %}
+            <div class="group relative rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1">
+                
+                <!-- Glass Background & Border -->
+                <div class="absolute inset-0 bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-3xl z-0 transition-colors group-hover:bg-white/[0.05] group-hover:border-white/20"></div>
+                
+                <!-- Inner Glow on Hover -->
+                <div class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-purple-500/20 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 p-8 h-full flex flex-col min-h-[320px]">
+                    <!-- Header -->
+                    <div class="flex items-start justify-between mb-8">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/50 font-mono text-[10px] tracking-widest uppercase mb-3">
+                                0{{ forloop.index }}
+                            </span>
+                            <h3 class="text-3xl font-display font-medium text-white group-hover:text-primary transition-colors">
+                                {{ category.category }}
+                            </h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white/30 transition-all">
+                            {% if category.category contains "Development" %}
+                            <i class="fa-solid fa-code"></i>
+                            {% elsif category.category contains "Frameworks" %}
+                            <i class="fa-solid fa-layer-group"></i>
+                            {% elsif category.category contains "Design" %}
+                            <i class="fa-solid fa-pen-nib"></i>
+                            {% else %}
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Skills Box -->
+                    <div class="mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            {% for skill in category.items %}
+                            <div class="relative px-3 py-2 rounded-lg border border-white/5 bg-black/20 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2 group/tag cursor-default">
+                                {% if skill.icon %}
+                                <i class="{{ skill.icon }} text-lg text-gray-500 group-hover/tag:text-white group-hover/tag:scale-110 transition-all flex-shrink-0 leading-none"></i>
+                                {% endif %}
+                                <span class="text-sm font-mono text-gray-400 group-hover/tag:text-white transition-colors leading-none pt-0.5">
+                                    {{ skill.name }}
+                                </span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+
+    <!-- Infinite Marquee Section -->
+    <div class="mt-32 relative w-full overflow-hidden py-10 border-y border-white/5 bg-[#080808]/50 backdrop-blur-sm">
+        <div class="marquee-track flex gap-8 w-max animate-marquee-half hover:pause-animation">
+            {% for i in (1..4) %} <!-- Duplicate 4 times for safety loop -->
+                {% for category in site.data.owner.skills %}
+                    {% for skill in category.items %}
+                    <div class="flex items-center gap-3 px-6 py-3 rounded-full border border-white/10 bg-white/5 whitespace-nowrap group hover:bg-white/10 transition-colors">
+                        {% if skill.icon %}
+                        <i class="{{ skill.icon }} text-2xl text-white/70 transition-transform group-hover:scale-110 group-hover:text-white"></i>
+                        {% else %}
+                        <span class="w-2 h-2 rounded-full bg-purple-500/50"></span>
+                        {% endif %}
+                        <span class="text-sm font-mono text-gray-300 uppercase tracking-wider group-hover:text-white transition-colors">{{ skill.name }}</span>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+        
+        <!-- Vignette -->
+        <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-10"></div>
+        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10"></div>
+    </div>
+
+</section>
+
+
+    

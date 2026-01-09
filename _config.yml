@@ -1,0 +1,37 @@
+permalink: /blog/:title/
+# SASS
+sass:
+  style: compressed
+  
+# Site Settings (Meta placeholders)
+site-keywords: "developer, svelte, jekyll, portfolio"
+site-image: "https://your-domain.com/default-share-image.jpg"
+
+author-name: "Harsh Trivedi"
+google-analytics: "G-45C37D3GB5"
+
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - postcss.config.js
+  - vite.config.js
+  - src
+  - README.md
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Jekyll Compress HTML Configuration
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: []

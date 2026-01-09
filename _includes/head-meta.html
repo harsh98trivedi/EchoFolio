@@ -1,0 +1,61 @@
+
+<!-- Include Meta Tags Here -->
+<!-- Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#030712">
+
+<!-- Preconnect to external resources for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- <link rel="preconnect" href="https://cdnjs.cloudflare.com"> -->
+<link rel="dns-prefetch" href="https://avatars.githubusercontent.com">
+<link rel="preload" as="image" href="{{ site.data.owner.avatar }}" fetchpriority="high">
+
+<!-- Primary Meta Tags -->
+<title>{% if page.title and page.title != "Home" %}{{ page.title }} | {% endif %}{{ site.data.owner.name }}{% if site.data.owner.tagline %} - {{ site.data.owner.tagline }}{% endif %}</title>
+<meta name="title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.data.owner.name }}">
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.owner.bio_short }}{% endif %}">
+<meta name="keywords" content="{{ site.data.owner.keywords }}">
+<meta name="author" content="{{ site.data.owner.name }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.data.owner.name }}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.owner.bio_short }}{% endif %}">
+<meta property="og:image" content="{{ site.data.owner.avatar | absolute_url }}">
+<meta property="og:site_name" content="{{ site.data.owner.name }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ page.url | absolute_url }}">
+<meta property="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.data.owner.name }}">
+<meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.owner.bio_short }}{% endif %}">
+<meta property="twitter:image" content="{{ site.data.owner.avatar | absolute_url }}">
+
+<!-- Google Analytics (Production Only) -->
+{% if site.google_analytics and jekyll.environment == 'production' %}
+<script defer src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+{% endif %}
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/assets/img/icon.svg">
+<link rel="apple-touch-icon" href="/assets/img/icon.svg">
+<link rel="mask-icon" href="/assets/img/icon.svg" color="#ffffff">
+
+<!-- FontAwesome CDN (loaded async for performance) -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+<!-- Devicon CDN -->
+<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />

@@ -1,0 +1,58 @@
+---
+layout: default
+title: Projects
+---
+
+<section class="min-h-screen pt-32 pb-24">
+    <div class="container mx-auto px-6">
+        <header class="mb-24 fade-up">
+            <h1 class="text-7xl md:text-9xl font-display font-bold leading-none tracking-tighter mb-8">
+                {{ site.data.owner.ui.projects_title | default: "Projects." }}
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl">
+                A selection of work designed with precision and passion.
+            </p>
+        </header>
+
+        <!-- Pass Static Data to JS -->
+        <script>
+            window.STATIC_PROJECTS = {{ site.data.projects | jsonify }};
+        </script>
+
+        <!-- Container for Mixed Projects -->
+        <div id="project-grid" class="columns-1 md:columns-2 lg:columns-2 gap-12 space-y-12 min-h-[50vh]">
+            {% for project in site.data.projects %}
+            <article class="project-card break-inside-avoid mb-24 relative group fade-up" style="animation-delay: {{ forloop.index | times: 100 }}ms">
+                <a href="{{ project.link }}" target="_blank" class="block w-full">
+                     <!-- Image Container for Shery Effects -->
+                    <div class="shery-img-wrapper relative overflow-hidden rounded-2xl aspect-video border border-white/5 bg-white/5 mb-8">
+                        <img 
+                            src="{{ project.image }}" 
+                            alt="{{ project.name }}" 
+                            loading="lazy"
+                            width="800"
+                            height="450"
+                            class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                        >
+                    </div>
+                </a>
+                
+                <div class="flex justify-between items-start px-2">
+                    <div class="max-w-[85%]">
+                        <h2 class="text-4xl font-display font-bold mb-3 group-hover:text-primary transition-colors shery-text magnetic inline-block origin-left">
+                            {{ project.name }}
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6 line-clamp-3">
+                            {{ project.description }}
+                        </p>
+                    </div>
+                    
+                    <a href="{{ project.link }}" target="_blank" class="magnetic h-12 w-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all shrink-0 group-hover:scale-110 duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

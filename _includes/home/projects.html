@@ -1,0 +1,71 @@
+<section class="py-32 border-t border-white/5 bg-[#080808]">
+    <div class="container mx-auto px-6">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 fade-up">
+            <div class="max-w-2xl">
+                <span class="text-primary font-mono text-sm uppercase tracking-widest mb-4 block">{{ site.data.owner.ui.projects_title | default: "Selected Works" }}</span>
+                <h2 class="text-4xl md:text-6xl font-display font-medium text-white leading-tight">
+                    {{ site.data.owner.ui.projects_subtitle | default: "Recent <span class='text-gray-500 italic font-serif'>Creations</span>" }}
+                </h2>
+            </div>
+            
+            <a href="/projects" class="hidden md:flex items-center gap-3 group text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors mt-8 md:mt-0">
+                View All Projects
+                <span class="w-8 h-[1px] bg-white/30 group-hover:w-12 group-hover:bg-white transition-all"></span>
+            </a>
+        </div>
+
+        <!-- Projects Grid: 1 Large + 4 Small -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {% assign featured_projects = site.data.projects | slice: 0, 5 %}
+            
+            <!-- Main Featured Project (Left - 7 cols) -->
+            {% if featured_projects[0] %}
+            <div class="lg:col-span-7 fade-up group h-full">
+                <a href="{{ featured_projects[0].link }}" target="_blank" class="block relative w-full aspect-video lg:h-full lg:aspect-auto min-h-[400px] lg:min-h-[500px] rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-500">
+                    <img src="{{ featured_projects[0].image }}" width="800" height="600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{{ featured_projects[0].name }}" loading="lazy">
+                    
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    
+                    <!-- Content -->
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-mono rounded-full mb-3">Latest Work</span>
+                        <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">{{ featured_projects[0].name }}</h3>
+                        <p class="text-gray-400 text-sm line-clamp-2 max-w-md">{{ featured_projects[0].description }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endif %}
+
+            <!-- Secondary Grid (Right - 5 cols) containing 4 projects in 2x2 -->
+            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
+                {% for project in featured_projects offset:1 limit:4 %}
+                <div class="fade-up group relative aspect-square sm:aspect-auto sm:h-auto">
+                    <a href="{{ project.link }}" target="_blank" class="block relative w-full h-full rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-500">
+                        <img src="{{ project.image }}" width="400" height="400" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{{ project.name }}" loading="lazy">
+                        
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                        
+                        <!-- Content -->
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <h3 class="text-sm md:text-base font-display font-medium text-white line-clamp-1 mb-1">{{ project.name }}</h3>
+                            <p class="text-gray-400 text-xs line-clamp-2 opacity-90 group-hover:opacity-100 transition-opacity">{{ project.description }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+        
+        <!-- Mobile View All Link -->
+        <div class="md:hidden mt-10 text-center">
+             <a href="/projects" class="inline-block px-8 py-4 border border-white/20 rounded-full text-sm uppercase tracking-widest text-white hover:bg-white hover:text-black transition-colors">
+                View All Projects
+            </a>
+        </div>
+    </div>
+</section>

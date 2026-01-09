@@ -1,0 +1,128 @@
+---
+layout: default
+title: About
+---
+
+<section class="relative min-h-screen pt-32 pb-20 overflow-hidden">
+    <!-- Subtle Grain Texture -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        
+        <!-- HEADER SECTION: High Impact Typography -->
+        <div class="mb-24 fade-up flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h1 class="font-display font-medium leading-[0.9] tracking-tighter text-[clamp(2.5rem,10vw,10rem)] mix-blend-difference text-white mb-8">
+                {{ site.data.owner.tagline }}
+            </h1>
+            <div class="border-t border-white/20 pt-8 w-full">
+                <p class="text-xl md:text-2xl w-full text-gray-300 leading-relaxed font-light">
+                    {{ site.data.owner.bio_long }}
+                </p>
+            </div>
+        </div>
+
+        <!-- BENTO GRID LAYOUT -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
+            
+            <!-- 1. IMAGE CARD (Large) -->
+            <div class="md:col-span-2 lg:col-span-2 row-span-2 relative group overflow-hidden rounded-3xl border border-white/10 fade-up">
+                <div class="absolute inset-0 bg-gray-900 animate-pulse"></div> <!-- Placeholder while loading -->
+                <img 
+                    src="https://avatars.githubusercontent.com/{{ site.data.owner.config.github_username }}" 
+                    alt="Profile" 
+                    loading="lazy"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                >
+                <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 class="text-3xl font-display font-bold text-white">{{ site.data.owner.name }}</h3>
+                    <p class="text-gray-300">{{ site.data.owner.location }}</p>
+                </div>
+            </div>
+
+            <!-- 2. STATS / SOCIALS (Small) -->
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 flex flex-col justify-between group hover:bg-white/10 transition-colors fade-up" style="animation-delay: 0.1s">
+                <div class="text-4xl">👋</div>
+                <div>
+                    <h4 class="text-gray-400 text-sm font-mono uppercase mb-4">Socials</h4>
+                    <div class="flex gap-6">
+                        {% for social in site.data.owner.socials limit:5 %}
+                        <a href="{{ social[1] }}" target="_blank" class="text-gray-400 hover:text-white transition-colors text-xl" aria-label="{{ social[0] | capitalize }}">
+                            <!-- Icon Logic -->
+                            {% assign platform = social[0] | downcase %}
+                            {% assign icon_class = 'fa-solid fa-link' %}
+                            
+                            {% if platform == 'twitter' or platform == 'x' %}
+                                {% assign icon_class = 'fab fa-x-twitter' %}
+                            {% elsif platform == 'github' %}
+                                {% assign icon_class = 'fab fa-github' %}
+                            {% elsif platform == 'linkedin' %}
+                                {% assign icon_class = 'fab fa-linkedin' %}
+                            {% elsif platform == 'instagram' %}
+                                {% assign icon_class = 'fab fa-instagram' %}
+                            {% elsif platform == 'youtube' %}
+                                {% assign icon_class = 'fab fa-youtube' %}
+                            {% elsif platform == 'behance' %}
+                                {% assign icon_class = 'fab fa-behance' %}
+                            {% endif %}
+                            
+                            <i class="{{ icon_class }}"></i>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. LOCATION / TIME (Small) -->
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 flex flex-col justify-between group hover:bg-white/10 transition-colors fade-up" style="animation-delay: 0.2s">
+                 <div class="text-4xl mix-blend-difference">🌏</div>
+                 <div>
+                    <h4 class="text-gray-400 text-sm font-mono uppercase mb-1">Based in</h4>
+                    <p class="text-xl font-bold text-white">{{ site.data.owner.location }}</p>
+                 </div>
+            </div>
+
+            <!-- 4. TECH STACK (Wide) -->
+            <div class="md:col-span-2 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl p-8 fade-up" style="animation-delay: 0.3s">
+                <h3 class="text-lg font-mono text-gray-500 uppercase tracking-widest mb-6 flex items-center gap-3">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> Tech Stack
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    {% for category in site.data.owner.skills %}
+                        {% for skill in category.items %}
+                        <span class="px-4 py-2 rounded-full border border-white/10 bg-black/20 text-sm text-gray-300 hover:border-white/40 hover:text-white transition-all cursor-default flex items-center gap-2 group" title="{{ category.category }}">
+                            {% if skill.icon %}
+                            <i class="{{ skill.icon }} text-xl opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                            {% else %}
+                            <span class="w-2 h-2 rounded-full bg-purple-500/50"></span>
+                            {% endif %}
+                            {{ skill.name }}
+                        </span>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- 5. EXPERIENCE (Full Width) -->
+            <div class="md:col-span-3 lg:col-span-4 row-span-2 bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 md:p-10 fade-up" style="animation-delay: 0.4s">
+                <h3 class="text-2xl font-display font-bold mb-8 flex items-center gap-3">
+                    Experience
+                </h3>
+                <div class="relative space-y-12 before:absolute before:inset-0 before:ml-2.5 before:w-0.5 before:bg-white/10 before:h-full">
+                    {% for job in site.data.owner.experience %}
+                    <div class="relative pl-10 group">
+                        <!-- Timeline Dot -->
+                        <span class="absolute left-0 top-1.5 w-[22px] h-[22px] bg-black border-2 border-white/20 rounded-full group-hover:border-white transition-colors z-10"></span>
+                        
+                        <h4 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">{{ job.role }}</h4>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">{{ job.company }}</span>
+                            <span class="text-gray-600 font-mono bg-white/5 px-2 py-0.5 rounded">{{ job.year }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

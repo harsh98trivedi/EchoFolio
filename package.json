@@ -1,0 +1,26 @@
+{
+  "name": "echofolio",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite build --watch\" \"bundle exec jekyll serve --livereload --config _config.yml\"",
+    "build": "node scripts/build.js",
+    "preview": "bundle exec jekyll serve"
+  },
+  "devDependencies": {
+    "@rollup/pluginutils": "^5.3.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.31",
+    "svelte": "^5.0.0-next.1",
+    "tailwindcss": "^3.3.5",
+    "vite": "^5.0.0",
+    "vite-plugin-glsl": "^1.5.5"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.29",
+    "gsap": "^3.12.2",
+    "lucide-svelte": "^0.468.0"
+  }
+}

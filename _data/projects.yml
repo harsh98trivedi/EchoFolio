@@ -1,0 +1,132 @@
+- name: Will you be my Valentine?
+  link: https://github.com/harsh98trivedi/ValentineFun
+  image: https://github.com/harsh98trivedi/ValentineFun/raw/master/meta.jpg
+  description: A playful and interactive web-based Valentine proposal.
+- name: Romeo Redirect Manager
+  link: https://github.com/harsh98trivedi/Romeo-Redirect-Manager
+  image: https://github.com/harsh98trivedi/Romeo-Redirect-Manager/raw/master/assets/images/meta.jpg
+  description: A modern, lightweight redirect manager. Redirect slugs to external URLs or internal pages/posts with style.
+- name: Smart Content Blocker
+  link: https://github.com/harsh98trivedi/Smart-Content-Blocker
+  image: https://github.com/harsh98trivedi/Smart-Content-Blocker/raw/master/images/meta.jpg
+  description: A powerful Chrome extension that intelligently blocks inappropriate content and social media distractions using smart heuristic analysis
+- name: One-Click HAR Exporter
+  link: https://github.com/harsh98trivedi/One-Click-HAR-Exporter
+  image: https://github.com/harsh98trivedi/One-Click-HAR-Exporter/raw/master/images/meta.jpg
+  description: Export HAR files with a single click directly from the browser's toolbar.
+- name: MultiFormat Data Converter
+  link: https://github.com/harsh98trivedi/MultiFormat-Data-Converter
+  image: https://github.com/harsh98trivedi/MultiFormat-Data-Converter/raw/master/public/meta.jpg
+  description: A modern, fast, and privacy-first data conversion tool that runs entirely in the browser
+- name: TidBit
+  link: https://github.com/harsh98trivedi/TidBit
+  image: https://github.com/harsh98trivedi/TidBit/raw/master/public/meta.jpg
+  description: A Svelte ToDo with formatting & reminders
+- name: YouTube Quick Controls
+  link: https://chromewebstore.google.com/detail/youtube-quick-controls/hcbpfgoejhnhmdhkbnkeofhfmfmjfnjg
+  image: https://raw.githubusercontent.com/harsh98trivedi/YouTube-Quick-Controls/master/images/meta.jpg
+  description: Fast, customizable quality and speed controls with keyboard shortcuts for YouTube videos
+- name: Amazon Search History Cleaner
+  link: https://chromewebstore.google.com/detail/amazon-search-history-cleaner/fgaglnpgeecmcahneolhgmplifhpikpa
+  image: https://github.com/harsh98trivedi/Amazon-Search-History-Cleaner/raw/master/images/meta.jpg
+  description: Clears the Amazon search bar history suggestions with a single click.
+- name: YouTube Studio One-Click Liker
+  link: https://chromewebstore.google.com/detail/youtube-studio-one-click/nponiplhcgglkjekghjcliplhocfnkik
+  image: https://github.com/harsh98trivedi/YouTube-Studio-One-Click-Liker/raw/master/images/meta.jpg
+  description: Likes all un-hearted comments on YouTube Studio page with a single click on the extension icon.
+- name: JSON Formatter
+  link: https://github.com/harsh98trivedi/JSON-Formatter
+  image: https://github.com/harsh98trivedi/JSON-Formatter/raw/master/meta.jpg
+  description: A clean, responsive, and modern JSON Formatter.
+- name: Text Info
+  link: https://github.com/harsh98trivedi/Text-Info
+  image: https://github.com/harsh98trivedi/Text-Info/raw/master/meta.jpg
+  description: Text Info is a clean and smart web app that helps you count characters, words, symbols, and more while checking the SMS encoding type in real time. It’s perfect for anyone composing messages that need to stay within SMS limits and encoding standards.
+- name: Random Generator
+  link: https://github.com/harsh98trivedi/Random-Decimal-Hex-Binary-and-String-Generator
+  image: https://raw.githubusercontent.com/harsh98trivedi/Random-Decimal-Hex-Binary-and-String-Generator/master/meta.jpg
+  description: A beautifully simple, perfectly centered, and accessible Random Decimal Hex Binary and String Generator that produces unique, non-repeating outputs in multiple formats — decimal numbers, hexadecimal, binary, and alphanumeric strings
+- name: Vivah Live
+  link: https://vivah.siteseva.com/
+  image: https://i.postimg.cc/J49Wxhcr/Cover.jpg
+  description: Your place to watch Indian weddings live! Enjoy the beautiful traditions, love, and joy as they happen, no matter where you are
+- name: World Trade Corporation
+  link: https://worldtradecorporation.in/
+  image: https://github.com/kishorwtc/kishorwtc.github.io/raw/main/wtc.png
+  description: Leading wholesaler in high-quality industrial chemicals for a variety of industries. We offer a satisfaction guarantee on all of our products, and we are always willing to help our customers find the right chemicals for their needs.
+- name: Password Generator
+  link: https://github.com/harsh98trivedi/Password-Generator
+  image: https://github.com/harsh98trivedi/Password-Generator/raw/master/meta.jpg
+  description: Tired of juggling countless passwords or relying on weak, predictable combinations? This robust password generator is here to fortify your digital defense with unique, secure passwords that even the most persistent hackers will struggle to crack.
+- name: EMI Calculator
+  link: https://github.com/harsh98trivedi/EMI-Calculator
+  image: https://github.com/harsh98trivedi/EMI-Calculator/raw/master/meta.jpg
+  description: The EMI Calculator app is a powerful tool designed to help you calculate the Equated Monthly Installment (EMI) for your loans. Whether you have a personal loan, a home loan, or any other type of loan, our app provides you with a simple and convenient way to determine your monthly repayment amount.
+- name: Currency Converter
+  link: https://github.com/harsh98trivedi/Currency-Converter/
+  image: https://raw.githubusercontent.com/harsh98trivedi/Currency-Converter/master/meta.jpg
+  description: The Currency Converter is a web application that allows users to convert amounts from one currency to another using real-time exchange rates. This project provides a simple and user-friendly interface for performing currency conversions.
+- name: Voting Eligibility Checker
+  link: https://github.com/harsh98trivedi/Voting-Eligibility-Checker
+  image: https://raw.githubusercontent.com/harsh98trivedi/Voting-Eligibility-Checker/master/meta.jpg
+  description: The Voting Eligibility Checker is a web application that allows users to check their eligibility to vote based on their age. It provides a simple and user-friendly interface where users can enter their age and receive an immediate response regarding their eligibility.
+- name: Multiplication Table Generator
+  link: https://github.com/harsh98trivedi/Multiplication-Table-Generator
+  image: https://raw.githubusercontent.com/harsh98trivedi/Multiplication-Table-Generator/master/meta.jpg
+  description: The Multiplication Table Generator is a user-friendly web application that generates multiplication tables based on a user's chosen number. With a simple interface, users input a number and instantly see a multiplication table from 1 to 10. It's a convenient tool for students, teachers, or anyone looking to practice multiplication concepts.
+- name: GetAMeta
+  link: https://github.com/harsh98trivedi/GetAMeta
+  image: https://raw.githubusercontent.com/harsh98trivedi/GetAMeta/master/meta.png
+  description: Web-based meta tag generator built with HTML, CSS, and JavaScript. It provides a user-friendly interface to generate meta tags for optimizing website metadata. The generated meta tags enhance search engine visibility, social media sharing, and overall website performance.
+- name: Drum Kit
+  link: https://github.com/harsh98trivedi/Drum-Kit
+  image: https://raw.githubusercontent.com/harsh98trivedi/Drum-Kit/master/meta.jpg
+  description: The drum kit that will make you want to play all day long.
+- name: TinDog
+  link: https://github.com/harsh98trivedi/TinDog
+  image: https://raw.githubusercontent.com/harsh98trivedi/TinDog/master/images/tindog.png
+  description: It is a fun and friendly website that invites dog lovers to join in on an exciting new way to meet other like-minded individuals and dogs in their area.
+- name: Links
+  link: https://github.com/harsh98trivedi/links
+  image: https://github.com/harsh98trivedi/links/raw/master/assets/images/links.jpg
+  description: A Beautiful Jekyll Theme For Links. The perfect alternative for Linktree! Links is a Jekyll theme designed for developers and creators alike. With its beautiful design, you can create a professional-looking link landing page within minutes. You can also add it to your Instagram bio or Twitter bio to provide easy access to your various web pages.
+- name: WhatATheme
+  link: https://github.com/thedevslot/WhatATheme
+  image: https://github.com/thedevslot/WhatATheme/raw/master/assets/images/meta.jpg
+  description: A customizable Jekyll Portfolio theme which supports blogging.
+- name: DC9111 - Website
+  link: https://github.com/dc-9111/website
+  image: https://i.imgur.com/zjxZ4JS.jpg
+  description: DEF CON Delhi | DC9111 is a group of techies, developers, designers, hackers and security researchers that is trying to spread core knowledge in the domain of cybersecurity and hacking that ranges from web application, hardware, embedded systems to RFID.
+- name: Sample School
+  link: https://github.com/harsh98trivedi/Sample-School
+  image: https://camo.githubusercontent.com/a8fa260921bddca627d8179040d6f5d5f0d074166c6ad0a84cd39115ff6d4ab2/68747470733a2f2f692e696d6775722e636f6d2f45444f32797a742e706e673f6d617877696474683d3135323026666964656c6974793d6772616e64
+  description: A randomly created theme for a basic school. This theme was randomly created in 2017 just for the purpose of learning.
+- name: C-Programs
+  link: https://github.com/harsh98trivedi/C-Programs
+  image: https://i.imgur.com/Wgm5mxY.jpg
+  description: A Repository full of C-Programs. I created this repository in order to collect all of the C-Programs from my friends and family.
+- name: LDR ALarm
+  link: https://github.com/harsh98trivedi/LDR-Buzzer-Alarm
+  image: https://i.imgur.com/IbbEJaS.png
+  description: I made an LDR Buzzer Alarm using Arduino and created a reposiory with it's circuit diagram and code.
+- name: Simple JavaScript Calculator
+  link: https://github.com/harsh98trivedi/Simple-JavaScript-Calculator
+  image: https://raw.githubusercontent.com/harsh98trivedi/Simple-JavaScript-Calculator/master/images/meta.jpg
+  description: This is a simple JavaScript Calculator that works using your keyboard keys too.
+- name: Instagram Photo Downloader
+  link: https://github.com/harsh98trivedi/Instagram-Photo-Downloader
+  image: https://raw.github.com/harsh98trivedi/Instagram-Photo-Downloader/master/images/meta.jpg
+  description: Download Instagram photos with ease. Free, Clean & Simple Instagram Photo Downloader for you.
+- name: Git-Commands
+  link: https://github.com/WeTheFOSS/Git-Commands
+  image: https://i.imgur.com/bwTpIeA.jpg
+  description: Git Commands provides us the information about the commands which are required to operate git( a version-control system).
+- name: YouTube Thumbnail Downloader
+  link: https://github.com/harsh98trivedi/YouTube-Thumbnail-Downloader
+  image: https://github.com/harsh98trivedi/YouTube-Thumbnail-Downloader/raw/master/meta.jpg
+  description: Download YouTube video thumbnails with ease. Free, Clean & Simple YouTube Thumbnail Downloader for you.
+- name: Techetarian
+  image: https://i.imgur.com/y2puKFj.png
+  link: https://www.techetarian.com
+  description: Technology Simplified. A blog about all the tech tips, tricks, tweaks and more.

@@ -1,0 +1,26 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Node
+node_modules/
+.npm
+npm-debug.log*
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/

@@ -1,0 +1,150 @@
+# --- OWNER CORE CONFIGURATION ---
+
+# 1. IDENTITY & BIO
+name: "Harsh Trivedi"
+tagline: "Inspired by Imagination"
+role: "A Tech Lover"
+email: "hi@harshtrivedi.in"
+location: "India"
+avatar: "https://github.com/harsh98trivedi.png"
+bio_short: "A Tech Lover, Inspired by Imagination"
+bio_long: "Howdy, I'm Harsh Trivedi. I'm passionate Tech Lover Inspired by Imagination. Apart from being an ardent tech enthusiast, I love spending time on design tools and exploring open-source projects. I enjoy tweaking and tinkering with the gadgets I own, and apart from all this, I enjoy spending my time watching content from some of my favorite creators. Playing with new software and apps acts like dopamine for me."
+
+# 2. SOCIALS
+# Leave a value empty "" to hide the icon from the site.
+socials:
+  github: "https://github.com/harsh98trivedi"
+  twitter: "https://twitter.com/harsh98trivedi"
+  linkedin: "https://linkedin.com/in/harsh98trivedi"
+  instagram: "https://instagram.com/harsh98trivedi"
+  youtube: "https://youtube.com/@harsh98trivedi"
+  behance: "https://behance.net/harsh98trivedi"
+  reddit: "https://reddit.com/user/harshtrivedi"
+
+# 3. NAVIGATION
+navigation:
+  - title: About
+    url: /about
+  - title: Contact
+    url: /contact
+  - title: Projects
+    url: /projects
+  - title: Blog
+    url: /blog
+  - title: Volunteering
+    url: /volunteering
+  - title: Links
+    url: /links
+
+# 4. SKILLS
+# Icons: Use simple-icons names (e.g. 'react', 'typescript') or React Icons names (e.g. 'SiReact').
+# The site handles both conventions.
+skills:
+  - category: "Development"
+    items: 
+      - name: "HTML"
+        icon: "devicon-html5-plain"
+      - name: "CSS"
+        icon: "devicon-css3-plain"
+      - name: "SCSS"
+        icon: "devicon-sass-original"
+      - name: "JavaScript"
+        icon: "devicon-javascript-plain"
+      - name: "TypeScript"
+        icon: "devicon-typescript-plain"
+      - name: "React"
+        icon: "devicon-react-original"
+      - name: "Next.js"
+        icon: "devicon-nextjs-plain"
+      - name: "Node.js"
+        icon: "devicon-nodejs-plain"
+      - name: "PHP"
+        icon: "devicon-php-plain"
+      - name: "Python"
+        icon: "devicon-python-plain"
+      - name: "WordPress"
+        icon: "devicon-wordpress-plain"
+      - name: "Jekyll"
+        icon: "devicon-jekyll-plain"
+      - name: "Google Analytics"
+        icon: "devicon-google-plain"
+  - category: "Frameworks & Tools"
+    items:
+      - name: "Tailwind CSS"
+        icon: "devicon-tailwindcss-original"
+      - name: "Bootstrap"
+        icon: "devicon-bootstrap-plain"
+      - name: "Docker"
+        icon: "devicon-docker-plain"
+      - name: "MongoDB"
+        icon: "devicon-mongodb-plain"
+      - name: "MySQL"
+        icon: "devicon-mysql-plain"
+      - name: "Postman"
+        icon: "devicon-postman-plain"
+      - name: "Git"
+        icon: "devicon-git-plain"
+      - name: "Linux"
+        icon: "devicon-linux-plain"
+      - name: "VS Code"
+        icon: "devicon-vscode-plain"
+  - category: "Design"
+    items:
+      - name: "Figma"
+        icon: "devicon-figma-plain"
+      - name: "Adobe Photoshop"
+        icon: "devicon-photoshop-plain"
+      - name: "Adobe Illustrator"
+        icon: "devicon-illustrator-plain"
+      - name: "Adobe XD"
+        icon: "devicon-xd-plain"
+      - name: "Adobe InDesign"
+        icon: "fa-solid fa-pen-nib"
+  - category: "Creative & Media"
+    items:
+      - name: "Premiere Pro"
+        icon: "devicon-premierepro-plain"
+      - name: "After Effects"
+        icon: "devicon-aftereffects-plain"
+      - name: "Final Cut Pro"
+        icon: "fa-solid fa-film"
+      - name: "Logic Pro"
+        icon: "fa-solid fa-music"
+      - name: "Adobe Audition"
+        icon: "fa-solid fa-wave-square"
+      - name: "Pro Tools"
+        icon: "fa-solid fa-sliders"
+
+# 5. EXPERIENCE
+experience:
+  - role: "Senior Technical Support Engineer"
+    company: "Everbridge"
+    year: "May 2025 - Present"
+  - role: "Support Specialist at Acquia DAM"
+    company: "Acquia"
+    year: "Jul 2023 - May 2025"
+  - role: "Support Specialist at Ninja Forms"
+    company: "Saturday Drive"
+    year: "Mar 2022 - Nov 2022"
+  - role: "Support Specialist at LearnDash"
+    company: "LiquidWeb"
+    year: "Sep 2020 - Mar 2022"
+  - role: "Freelance Web Developer & Blogger"
+    company: "Techetarian"
+    year: "Mar 2015 - Present"
+
+# 6. UI STRINGS
+ui:
+  contact_title: "Let's Start a Project"
+  contact_subtitle: "Interested in working together?"
+  projects_title: "Selected Works"
+  recent_posts_title: "Recent Insights"
+  footer_cta: "Have an idea?"
+  footer_cta_sub: "Let's build it together."
+
+# 7. CONFIG
+config:
+  google_form_action: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSchyWSZ1bcNFcKJ4RYrvHrbya_kh6-pXQY6hlW5S_kzigELfA/formResponse"
+  github_username: "harsh98trivedi"
+  google_analytics_id: "G-45C37D3GB5"
+  disqus_username: "harshtrivedi"

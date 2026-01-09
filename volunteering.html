@@ -1,0 +1,52 @@
+---
+layout: default
+title: Volunteering
+---
+
+<section class="min-h-screen pt-32 pb-24 relative overflow-hidden">
+    <!-- Background Gradient -->
+    <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <header class="mb-20 text-center max-w-3xl mx-auto fade-up">
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">Giving Back.</h1>
+            <p class="text-xl text-gray-400">Community service and mentorship initiatives.</p>
+        </header>
+        
+        <div class="flex flex-col gap-24 max-w-4xl mx-auto">
+            {% for item in site.data.volunteering %}
+            <article class="relative fade-up" style="animation-delay: {{ forloop.index | times: 100 }}ms">
+                <!-- Header: Title & Role -->
+                <div class="mb-8 border-l-2 border-primary/50 pl-6">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-2">
+                        <a href="{{ item.link }}" target="_blank" class="hover:text-primary transition-colors">{{ item.title }}</a>
+                    </h2>
+                    <div class="flex flex-wrap items-center gap-4 text-sm font-mono uppercase tracking-widest text-gray-400">
+                        <span class="text-white font-bold">{{ item.role }}</span>
+                        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+                        <span>{{ item.period }}</span>
+                    </div>
+                </div>
+
+                <!-- Featured Image -->
+                {% if item.image %}
+                <div class="mb-10 rounded-2xl overflow-hidden border border-white/10 aspect-[22/9] group">
+                    <img src="{{ item.image }}" alt="{{ item.title }}" width="880" height="360" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                </div>
+                {% endif %}
+
+                <!-- Description -->
+                 <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed">
+                    {{ item.description | markdownify }}
+                </div>
+            </article>
+
+            <!-- Divider -->
+            {% unless forloop.last %}
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            {% endunless %}
+            
+            {% endfor %}
+        </div>
+    </div>
+</section>

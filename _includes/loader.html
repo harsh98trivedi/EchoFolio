@@ -1,0 +1,139 @@
+
+<!-- Global Loader Overlay -->
+<div id="global-loader" class="fixed inset-0 z-[9999] bg-[#030712] flex items-center justify-center transition-opacity duration-700 will-change-opacity">
+    <div class="relative flex flex-col items-center">
+        <!-- Abstract Animated Orb -->
+        <div class="relative w-24 h-24 mb-8">
+            <div class="absolute inset-0 bg-white/5 rounded-full blur-xl animate-pulse"></div>
+            <div class="absolute inset-0 border border-white/10 rounded-full animate-spin-slow"></div>
+            <div class="absolute inset-2 border-t border-white/30 rounded-full animate-spin"></div>
+            <div class="absolute inset-[30%] bg-white rounded-full mix-blend-overlay animate-bounce-slow"></div>
+        </div>
+        
+        <!-- Minimal Progress Text -->
+        <div class="overflow-hidden h-6 pb-1">
+            <span class="block text-sm font-mono uppercase tracking-[0.4em] text-white/40 animate-slide-up">
+                Initializing
+            </span>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes spin-slow {
+        to { transform: rotate(360deg); }
+    }
+    @keyframes bounce-slow {
+        0%, 100% { transform: scale(0.8); opacity: 0.5; }
+        50% { transform: scale(1); opacity: 1; }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 8s linear infinite;
+    }
+    .animate-bounce-slow {
+        animation: bounce-slow 2s ease-in-out infinite;
+    }
+    .animate-slide-up {
+        animation: slideUp 1s cubic-bezier(0.87, 0, 0.13, 1) forwards;
+    }
+    @keyframes slideUp {
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+</style>
+
+<script>
+    (function() {
+        // --- Configuration ---
+        const LOADER_ID = 'global-loader';
+        const MIN_DISPLAY_TIME = 800; // ms to ensure loader doesn't flicker too fast
+        const FADE_DURATION = 500;    // ms matching CSS transition
+
+        let isNavigating = false;
+        
+        // --- Helpers ---
+        const getLoader = () => document.getElementById(LOADER_ID);
+
+        const showLoader = () => {
+            const loader = getLoader();
+            if (loader) {
+                loader.style.pointerEvents = 'all'; // block interactions
+                loader.style.opacity = '1';
+                loader.style.display = 'flex'; // assure it's visible
+            }
+        };
+
+        const hideLoader = () => {
+            const loader = getLoader();
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    if (!isNavigating) {
+                        loader.style.display = 'none';
+                        loader.style.pointerEvents = 'none';
+                    }
+                }, FADE_DURATION);
+            }
+        };
+
+        // --- Initial Load ---
+        // Use visible state immediately if JS runs early ?? 
+        // Actually, CSS puts it there. We just need to hide it when ready.
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                hideLoader();
+            }, MIN_DISPLAY_TIME);
+        });
+
+        // --- Navigation Interception ---
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link) return;
+
+                const href = link.getAttribute('href');
+                const target = link.getAttribute('target');
+                
+                // Ignore conditions
+                if (
+                    !href || 
+                    href.startsWith('#') || 
+                    href.startsWith('mailto:') || 
+                    href.startsWith('tel:') || 
+                    target === '_blank' || 
+                    e.metaKey || 
+                    e.ctrlKey || 
+                    e.shiftKey ||
+                    e.altKey ||
+                    href === window.location.pathname ||
+                    href === window.location.href
+                ) {
+                    return;
+                }
+
+                // Internal Links Check (if relative or same origin)
+                const isInternal = href.startsWith('/') || href.startsWith('.') || href.includes(window.location.origin);
+                
+                if (isInternal) {
+                    e.preventDefault();
+                    isNavigating = true;
+                    showLoader();
+
+                    // Navigate after a delay to show the loader transition
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 400); 
+                }
+            });
+        });
+
+        // --- BFCache Restore (Back Button Fix) ---
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                isNavigating = false;
+                hideLoader();
+            }
+        });
+    })();
+</script>
