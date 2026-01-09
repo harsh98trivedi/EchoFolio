@@ -49,9 +49,10 @@
 {% endif %}
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/assets/img/icon.svg">
-<link rel="apple-touch-icon" href="/assets/img/icon.svg">
-<link rel="mask-icon" href="/assets/img/icon.svg" color="#ffffff">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/img/icon.svg' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/img/icon.svg' | relative_url }}">
+<link rel="mask-icon" href="{{ '/assets/img/icon.svg' | relative_url }}" color="#ffffff">
 
 <!-- FontAwesome CDN (loaded async for performance) -->
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

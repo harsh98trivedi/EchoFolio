@@ -3,7 +3,7 @@
     <script>
         window.githubUsername = "{{ site.data.owner.config.github_username }}";
     </script>
-    <script src="/assets/js/github.js" type="module" defer></script>
+    <script src="{{ '/assets/js/github.js' | relative_url }}" type="module" defer></script>
 
     <div class="container mx-auto px-6 relative z-10">
         
@@ -24,7 +24,7 @@
             <!-- Col 1: Brand -->
             <div class="space-y-4">
                 <a href="/" class="block w-8 h-8 invert brightness-0">
-                    <object data="/assets/img/icon.svg" type="image/svg+xml" class="w-full h-full pointer-events-none"></object>
+                    <object data="{{ '/assets/img/icon.svg' | relative_url }}" type="image/svg+xml" class="w-full h-full pointer-events-none"></object>
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
                     {{ site.data.owner.bio_short }}
@@ -101,7 +101,7 @@
             <div class="flex items-center gap-2">
                 <span>Designed & Built with ❤️ by </span>
                 <a href="https://harsh98trivedi.github.io" class="w-4 h-4 invert brightness-0 hover:opacity-80 transition-opacity">
-                    <img src="/assets/img/icon.svg" alt="HT" class="w-full h-full">
+                    <img src="{{ '/assets/img/icon.svg' | relative_url }}" alt="HT" class="w-full h-full">
                 </a>
             </div>
             
