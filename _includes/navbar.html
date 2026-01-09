@@ -3,9 +3,9 @@
 
     <div class="container mx-auto px-6 h-24 flex items-center justify-between relative z-50 pointer-events-auto">
         <!-- SVG Logo -->
-        <a href="/" aria-label="Home" class="group relative w-8 h-8 flex items-center justify-center pointer-events-auto magnetic z-50">
+        <a href="{{ '/' | relative_url }}" aria-label="Home" class="group relative w-8 h-8 flex items-center justify-center pointer-events-auto magnetic z-50">
             <object 
-                data="/assets/img/icon.svg" 
+                data="{{ '/assets/img/icon.svg' | relative_url }}" 
                 type="image/svg+xml" 
                 class="w-full h-full text-white pointer-events-none invert brightness-0"
                 aria-label="Logo"
@@ -27,7 +27,7 @@
         
         <!-- Right Side: Let's Talk + Mobile Toggle -->
         <div class="flex items-center gap-6 z-[100]">
-            <a href="/contact" class="hidden lg:flex items-center justify-center h-10 px-8 border border-white/20 rounded-full text-xs font-sans font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all hover:scale-105 magnetic backdrop-blur-sm bg-white/5 text-white">
+            <a href="{{ '/contact' | relative_url }}" class="hidden lg:flex items-center justify-center h-10 px-8 border border-white/20 rounded-full text-xs font-sans font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all hover:scale-105 magnetic backdrop-blur-sm bg-white/5 text-white">
                 Let's Talk
             </a>
 
@@ -56,7 +56,7 @@
             {% endfor %}
             
             <a 
-                href="/contact" 
+                href="{{ '/contact' | relative_url }}" 
                 class="mobile-link mt-8 px-10 py-4 bg-white text-black rounded-full text-lg font-sans font-bold uppercase tracking-widest hover:scale-105 transition-all transform translate-y-8 opacity-0"
             >
                 Let's Talk

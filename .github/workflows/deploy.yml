@@ -43,7 +43,14 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        # We use a fallback to /RepoName if base_path is empty to ensure relative_url works
+        run: |
+          BASE_PATH="${{ steps.pages.outputs.base_path }}"
+          if [ -z "$BASE_PATH" ]; then
+            BASE_PATH="/${{ github.event.repository.name }}"
+          fi
+          echo "Building with baseurl: $BASE_PATH"
+          bundle exec jekyll build --baseurl "$BASE_PATH"
         env:
           JEKYLL_ENV: production
 
