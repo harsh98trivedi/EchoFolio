@@ -5,7 +5,7 @@ sass:
   
 # Site Settings (Meta placeholders)
 site-keywords: "developer, svelte, jekyll, portfolio"
-site-image: "https://your-domain.com/default-share-image.jpg"
+site-image: "https://github.com/harsh98trivedi/EchoFolio/raw/master/assets/img/meta.jpg"
 
 author-name: "Harsh Trivedi"
 google-analytics: "G-45C37D3GB5"
