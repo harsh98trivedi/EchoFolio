@@ -11,12 +11,10 @@ function run(command, args) {
         shell: isWin ? true : false // Only use shell on Windows to resolve bat/cmd files
     });
     if (result.error) {
-        console.error(`Execution failed: ${result.error.message}`);
-        process.exit(1);
+        throw new Error(`Execution failed: ${result.error.message}`);
     }
     if (result.status !== 0) {
-        console.error(`Command failed with status ${result.status}`);
-        process.exit(result.status || 1);
+        throw new Error(`Command failed with status ${result.status}`);
     }
 }
 
