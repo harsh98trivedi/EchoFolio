@@ -2,7 +2,7 @@
 
 **Echofolio** is a premium, high-performance portfolio theme designed for developers, designers, and creative technologies. Built with **Jekyll** and **Tailwind CSS**, it features a fully data-driven architecture, meaning you can control almost every aspect of the site from a single configuration file without touching code.
 
-![Echofolio Preview](assets/img/meta.jpg)
+![EchoFolio Preview](assets/img/meta.jpg)
 
 ## ✨ Features
 
