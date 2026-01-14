@@ -23,8 +23,8 @@
             
             <!-- Col 1: Brand -->
             <div class="space-y-4">
-                <a href="{{ '/' | relative_url }}" class="block w-8 h-8 invert brightness-0">
-                    <object data="{{ '/assets/img/icon.svg' | relative_url }}" type="image/svg+xml" class="w-full h-full pointer-events-none"></object>
+                <a href="{{ '/' | relative_url }}" class="block w-8 h-8">
+                    <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="Logo" class="w-full h-full object-contain">
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
                     {{ site.data.owner.bio_short }}
@@ -50,7 +50,7 @@
             <div>
                 <h4 class="font-bold text-white mb-6">Socials</h4>
                 <ul class="space-y-3">
-                     {% for social in site.data.owner.socials limit:4 %}
+                     {% for social in site.data.owner.socials %}
                      <li>
                         <a href="{{ social[1] }}" target="_blank" class="text-gray-400 hover:text-white transition-colors capitalize flex items-center gap-2 group">
                             <!-- Icon Logic -->
@@ -65,6 +65,12 @@
                                 {% assign icon_class = 'fab fa-linkedin' %}
                             {% elsif platform == 'instagram' %}
                                 {% assign icon_class = 'fab fa-instagram' %}
+                            {% elsif platform == 'youtube' %}
+                                {% assign icon_class = 'fab fa-youtube' %}
+                            {% elsif platform == 'behance' %}
+                                {% assign icon_class = 'fab fa-behance' %}
+                            {% elsif platform == 'reddit' %}
+                                {% assign icon_class = 'fab fa-reddit' %}
                             {% endif %}
                             
                             <i class="{{ icon_class }} w-4 h-[1.125rem] text-center"></i>
@@ -96,12 +102,12 @@
             {% endif %}
         </div>
         
-        <div class="flex flex-col md:flex-row justify-between items-center pt-16 mt-16 border-t border-white/5 text-gray-600 text-xs font-mono uppercase tracking-widest relative">
+        <div class="flex flex-col md:flex-row justify-between items-center pt-16 mt-16 border-t border-white/5 text-gray-600 text-xs tracking-widest relative">
             <p>&copy; {{ site.time | date: '%Y' }} {{ site.data.owner.name }}</p>
             <div class="flex items-center gap-2">
                 <span>Designed & Built with ❤️ by </span>
-                <a href="https://harsh98trivedi.github.io" class="w-4 h-4 invert brightness-0 hover:opacity-80 transition-opacity">
-                    <img src="{{ '/assets/img/icon.svg' | relative_url }}" alt="HT" class="w-full h-full">
+                <a href="https://harsh98trivedi.github.io" class="w-4 h-4 hover:opacity-80 transition-opacity">
+                    <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="HT" class="w-full h-full object-contain">
                 </a>
             </div>
             

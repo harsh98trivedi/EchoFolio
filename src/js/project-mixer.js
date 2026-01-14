@@ -1,7 +1,7 @@
-
 /**
  * Project Mixer
- * Fetches pinned/top GitHub repos and mixes them with static projects.
+ * Renders projects from static data (projects.yml) only.
+ * GitHub fetching has been removed as per request.
  */
 
 export async function initProjectMixer() {
@@ -11,47 +11,17 @@ export async function initProjectMixer() {
     // 1. Get Static Projects (Rendered via Liquid as JSON)
     const staticProjects = window.STATIC_PROJECTS || [];
 
-    // 2. Fetch GitHub Projects
-    let githubProjects = [];
-    try {
-        // Fallback username if window variable not set
-        const username = (window.githubUsername && window.githubUsername !== '') ? window.githubUsername : 'harsh98trivedi'; 
-        
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`, {
-             headers: { 'Accept': 'application/vnd.github.v3+json' }
-        });
+    // 2. Map to standardized format expected by the template
+    const projects = staticProjects.map(p => ({
+        title: p.name || p.title, // Handle both 'name' (YML standard) and 'title'
+        description: p.description,
+        image: p.image,
+        tags: p.tags || [],
+        live_url: p.link || p.live_url || p.url // Handle various URL keys
+    }));
 
-        if (response.ok) {
-            const repos = await response.json();
-            
-            // Map GitHub repos to our project structure
-            githubProjects = repos.map(repo => ({
-                title: repo.name,
-                description: repo.description || "Open source contribution.",
-                // Use GitHub OpenGraph image for a rich preview
-                image: `https://opengraph.githubassets.com/1/${repo.full_name}`, 
-                tags: [repo.language || "Open Source", "GitHub"],
-                live_url: repo.homepage || repo.html_url,
-                isGithub: true
-            })).filter(repo => !repo.fork); // Optional: filter out forks
-        } else {
-             console.error("GitHub API Error:", response.status, response.statusText);
-        }
-    } catch (e) {
-        console.warn("GitHub Project Fetch failed", e);
-    }
-
-    // 3. Shuffle & Merge (Interleave)
-    const mixedProjects = [];
-    const maxLen = Math.max(staticProjects.length, githubProjects.length);
-    
-    for (let i = 0; i < maxLen; i++) {
-        if (staticProjects[i]) mixedProjects.push(staticProjects[i]);
-        if (githubProjects[i]) mixedProjects.push(githubProjects[i]);
-    }
-
-    // 4. Render with "Breathing Space" and Shery-compatible classes
-    container.innerHTML = mixedProjects.map(project => `
+    // 3. Render
+    container.innerHTML = projects.map(project => `
         <article class="project-card break-inside-avoid mb-24 relative group">
             <a href="${project.live_url}" target="_blank" class="block w-full cursor-none">
                 <!-- Image Container -->
@@ -74,7 +44,7 @@ export async function initProjectMixer() {
                         ${project.description}
                     </p>
                     <div class="flex flex-wrap gap-3">
-                        ${project.tags.map(tag => `
+                        ${(project.tags || []).map(tag => `
                             <span class="text-sm border border-white/10 px-3 py-1 rounded-full text-gray-400 font-mono hover:bg-white/5 transition-colors">${tag}</span>
                         `).join('')}
                     </div>

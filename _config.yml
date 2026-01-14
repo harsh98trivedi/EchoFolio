@@ -24,6 +24,22 @@ exclude:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-workbox-plugin
+  - jekyll-turbo
+
+# Workbox Configuration
+workbox:
+  sw_src_filepath: _includes/sw.js # Optional: Path to your custom SW template
+  sw_dest_filename: sw.js # Destination filename
+  precache_glob_directory: _site
+  precache_glob_patterns:
+    - "**/*.{html,js,css,woff,woff2}"
+    - "assets/img/*.{jpg,png,svg,webp}"
+  precache_glob_ignores:
+    - "sw.js"
+    - "404.html"
+
 
 # Jekyll Compress HTML Configuration
 compress_html:

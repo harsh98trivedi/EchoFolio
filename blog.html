@@ -3,7 +3,7 @@ layout: blog
 title: Blog
 ---
 
-<div class="bg-background min-h-screen pt-32 pb-24">
+<div class="min-h-screen pt-32 pb-24 relative z-10">
     <div class="container mx-auto px-6">
         <header class="mb-20 text-center max-w-3xl mx-auto">
             <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 fade-up">
@@ -28,8 +28,9 @@ title: Blog
 
             <!-- Blog Posts List (Horizontal Cards) -->
         <div class="flex flex-col gap-8 max-w-4xl mx-auto" id="blog-posts-container">
-            {% for post in site.posts %}
-            <article class="blog-card group relative bg-[#0d1117] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all fade-up hover:scale-[1.01] duration-300" style="animation-delay: {{ forloop.index | times: 100 }}ms">
+            {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+            {% for post in sorted_posts %}
+            <article class="blog-card group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all fade-up hover:scale-[1.01] duration-300" style="animation-delay: {{ forloop.index | times: 100 }}ms">
                 <a href="{{ post.url }}" class="flex flex-col md:flex-row w-full">
                     <!-- Image (Left Side) - Fixed aspect ratio on mobile, min-height on desktop -->
                     <div class="w-full md:w-[45%] shrink-0 aspect-[16/10] md:aspect-auto md:min-h-[160px] overflow-hidden">

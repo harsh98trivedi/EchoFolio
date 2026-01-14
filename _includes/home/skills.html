@@ -1,4 +1,4 @@
-<section id="technical-arsenal" class="py-32 relative bg-[#050505] overflow-hidden">
+<section id="technical-arsenal" class="py-32 relative bg-transparent overflow-hidden">
     
     <!-- Dynamic Background Grid -->
     <div class="absolute inset-0 z-0 pointer-events-none">
@@ -83,7 +83,7 @@
     </div>
 
     <!-- Infinite Marquee Section -->
-    <div class="mt-32 relative w-full overflow-hidden py-10 border-y border-white/5 bg-[#080808]/50 backdrop-blur-sm">
+    <div class="mt-32 relative w-full overflow-hidden py-10">
         <div class="marquee-track flex gap-8 w-max animate-marquee-half hover:pause-animation">
             {% for i in (1..4) %} <!-- Duplicate 4 times for safety loop -->
                 {% for category in site.data.owner.skills %}
@@ -102,8 +102,7 @@
         </div>
         
         <!-- Vignette -->
-        <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-10"></div>
-        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10"></div>
+
     </div>
 
 </section>

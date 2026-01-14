@@ -4,7 +4,55 @@ layout: default
 permalink: /404.html
 ---
 
-<section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#030712] pt-32">
+<!-- Client-side Redirect Fallback -->
+<script>
+    (function() {
+        var redirects = {{ site.data.redirects | jsonify }};
+        var currentPath = window.location.pathname;
+        
+        // Normalize: remove trailing slash for comparison
+        var normalizedCurrent = currentPath.length > 1 && currentPath.endsWith('/') 
+            ? currentPath.slice(0, -1) 
+            : currentPath;
+
+        if (redirects) {
+            for (var i = 0; i < redirects.length; i++) {
+                var entry = redirects[i];
+                var fromPath = entry.from;
+
+                // Ensure fromPath starts with /
+                if (!fromPath.startsWith('/')) fromPath = '/' + fromPath;
+                // Remove trailing slash from rule if present
+                if (fromPath.length > 1 && fromPath.endsWith('/')) fromPath = fromPath.slice(0, -1);
+
+                // Check match
+                if (normalizedCurrent === fromPath || normalizedCurrent.endsWith(fromPath)) {
+                    // Redirect matched! Perform redirect immediately.
+                    window.location.replace(entry.to);
+                    return;
+                }
+            }
+        }
+        
+        // If we get here, no redirect matched.
+        // We can safely show the 404 content.
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('error-container').style.visibility = 'visible';
+            document.getElementById('error-container').style.opacity = '1';
+        });
+    })();
+</script>
+
+<style>
+    /* Hide content initially to prevent flash of 404 on valid redirects */
+    #error-container {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+    }
+</style>
+
+<section id="error-container" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#030712] pt-32">
     
     <!-- Tech Grid Background -->
     <div class="absolute inset-0 pointer-events-none">

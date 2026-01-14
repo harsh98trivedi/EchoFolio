@@ -28,7 +28,7 @@ title: About
             <div class="md:col-span-2 lg:col-span-2 row-span-2 relative group overflow-hidden rounded-3xl border border-white/10 fade-up">
                 <div class="absolute inset-0 bg-gray-900 animate-pulse"></div> <!-- Placeholder while loading -->
                 <img 
-                    src="https://avatars.githubusercontent.com/{{ site.data.owner.config.github_username }}" 
+                    src="{{ site.data.owner.avatar }}" 
                     alt="Profile" 
                     loading="lazy"
                     class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
@@ -45,7 +45,7 @@ title: About
                 <div>
                     <h4 class="text-gray-400 text-sm font-mono uppercase mb-4">Socials</h4>
                     <div class="flex gap-6">
-                        {% for social in site.data.owner.socials limit:5 %}
+                        {% for social in site.data.owner.socials %}
                         <a href="{{ social[1] }}" target="_blank" class="text-gray-400 hover:text-white transition-colors text-xl" aria-label="{{ social[0] | capitalize }}">
                             <!-- Icon Logic -->
                             {% assign platform = social[0] | downcase %}
@@ -63,6 +63,8 @@ title: About
                                 {% assign icon_class = 'fab fa-youtube' %}
                             {% elsif platform == 'behance' %}
                                 {% assign icon_class = 'fab fa-behance' %}
+                            {% elsif platform == 'reddit' %}
+                                {% assign icon_class = 'fab fa-reddit' %}
                             {% endif %}
                             
                             <i class="{{ icon_class }}"></i>

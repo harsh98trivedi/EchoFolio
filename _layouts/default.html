@@ -59,14 +59,37 @@
     
     <!-- JavaScript Module (Deferred) -->
     <script type="module" src="{{ '/assets/dist/main.js?v=4' | relative_url }}"></script>
+    
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js" defer></script>
+    <script src="{{ '/assets/js/particles-init.js' | relative_url }}" defer></script>
+
+    <!-- PWA Manifest & Service Worker -->
+    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
 </head>
 <body class="bg-background text-foreground min-h-screen flex flex-col selection:bg-primary selection:text-primary-foreground">
+    
+    <!-- Particles Container -->
+    <div id="tsparticles" class="fixed inset-0 z-0 pointer-events-none"></div>
 
     {% include loader.html %}
 
     {% include navbar.html %}
 
-    <main class="flex-grow">
+    <main class="flex-grow relative z-10">
         {{ content }}
     </main>
 

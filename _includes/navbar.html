@@ -4,30 +4,92 @@
     <div class="container mx-auto px-6 h-24 flex items-center justify-between relative z-50 pointer-events-auto">
         <!-- SVG Logo -->
         <a href="{{ '/' | relative_url }}" aria-label="Home" class="group relative w-8 h-8 flex items-center justify-center pointer-events-auto magnetic z-50">
-            <object 
-                data="{{ '/assets/img/icon.svg' | relative_url }}" 
-                type="image/svg+xml" 
-                class="w-full h-full text-white pointer-events-none invert brightness-0"
-                aria-label="Logo"
-            ></object>
+            <img 
+                src="{{ '/assets/img/logo.svg' | relative_url }}" 
+                alt="Logo"
+                class="w-full h-full object-contain pointer-events-none"
+            />
         </a>
 
         <!-- Desktop Links -->
         <div class="hidden lg:flex flex-1 items-center justify-center gap-8 lg:gap-12">
-            {% for item in site.data.owner.navigation %}
+            {% for item in site.data.owner.navigation limit:5 %}
             <a 
                 href="{{ item.url | relative_url }}" 
-                class="nav-item text-xs lg:text-sm font-sans font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-white transition-colors relative group magnetic py-4"
+                class="nav-item text-xs lg:text-sm font-sans font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-primary transition-colors relative group magnetic py-4"
             >
                 <span class="inline-block">{{ item.title }}</span>
-                <span class="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span class="absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </a>
             {% endfor %}
+
+            <!-- More Dropdown -->
+            <div class="relative group ml-4 z-50">
+                <button class="nav-item flex items-center gap-1 text-xs lg:text-sm font-sans font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-primary transition-colors py-4">
+                    More
+                    <svg class="w-3 h-3 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 w-64 origin-top-right">
+                    <div class="bg-[#050505]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden ring-1 ring-white/5">
+                        
+                        <!-- Navigation Links -->
+                        <div class="py-2">
+                            {% for item in site.data.owner.navigation offset:5 %}
+                            <a href="{{ item.url | relative_url }}" class="block px-4 py-3 text-sm font-bold font-sans text-gray-300 hover:text-white hover:bg-white/10 transition-colors">
+                                {{ item.title }}
+                            </a>
+                            {% endfor %}
+                            <a href="{{ site.data.owner.config.google_calendar_appointment_url }}" target="_blank" class="block px-4 py-3 text-sm font-bold font-sans text-gray-300 hover:text-white hover:bg-white/10 transition-colors">
+                                <i class="fa-regular fa-calendar mr-2 opacity-70"></i> Schedule a Call
+                            </a>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="h-px w-full bg-white/10"></div>
+
+                        <!-- Socials -->
+                        <div class="p-4 bg-white/[0.02]">
+                            <div class="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest mb-3 opacity-70">Connect</div>
+                            <div class="grid grid-cols-5 gap-2">
+                                {% for social in site.data.owner.socials %}
+                                {% if social[1] != "" %}
+                                <a href="{{ social[1] }}" target="_blank" class="flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white border border-white/5 hover:border-white/20 transition-all hover:scale-110" aria-label="{{ social[0] }}">
+                                    {% assign platform = social[0] | downcase %}
+                                    {% assign icon_class = 'fa-solid fa-link' %}
+                                    
+                                    {% if platform == 'twitter' or platform == 'x' %}
+                                        {% assign icon_class = 'fab fa-x-twitter' %}
+                                    {% elsif platform == 'github' %}
+                                        {% assign icon_class = 'fab fa-github' %}
+                                    {% elsif platform == 'linkedin' %}
+                                        {% assign icon_class = 'fab fa-linkedin' %}
+                                    {% elsif platform == 'instagram' %}
+                                        {% assign icon_class = 'fab fa-instagram' %}
+                                    {% elsif platform == 'youtube' %}
+                                        {% assign icon_class = 'fab fa-youtube' %}
+                                    {% elsif platform == 'behance' %}
+                                        {% assign icon_class = 'fab fa-behance' %}
+                                    {% elsif platform == 'reddit' %}
+                                        {% assign icon_class = 'fab fa-reddit' %}
+                                    {% endif %}
+                                    
+                                    <i class="{{ icon_class }} text-xs"></i>
+                                </a>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Right Side: Let's Talk + Mobile Toggle -->
         <div class="flex items-center gap-6 z-[100]">
-            <a href="{{ '/contact' | relative_url }}" class="hidden lg:flex items-center justify-center h-10 px-8 border border-white/20 rounded-full text-xs font-sans font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all hover:scale-105 magnetic backdrop-blur-sm bg-white/5 text-white">
+            <a href="{{ '/contact' | relative_url }}" class="hidden lg:flex items-center justify-center h-10 px-8 border border-white/20 rounded-full text-xs font-sans font-bold uppercase tracking-widest hover:bg-primary hover:border-primary hover:text-white transition-all hover:scale-105 magnetic backdrop-blur-sm bg-white/5 text-white">
                 Let's Talk
             </a>
 
@@ -46,7 +108,7 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-black z-40 opacity-0 pointer-events-none transition-opacity duration-500 lg:hidden overflow-y-auto">
         <div class="min-h-screen flex flex-col items-center justify-center gap-8 text-center py-20 px-6">
-            {% for item in site.data.owner.navigation %}
+            {% for item in site.data.owner.navigation limit:5 %}
             <a 
                 href="{{ item.url | relative_url }}" 
                 class="mobile-link text-4xl sm:text-5xl font-display font-light text-white hover:text-gray-400 transition-colors transform translate-y-8 opacity-0"
@@ -54,6 +116,39 @@
                 {{ item.title }}
             </a>
             {% endfor %}
+
+            <!-- Mobile More Wrapper -->
+            <div class="flex flex-col items-center pt-1">
+                <button 
+                    data-no-close="true"
+                    onclick="toggleMoreMenu(this)"
+                    class="mobile-link text-4xl sm:text-5xl font-display font-light text-white hover:text-gray-400 transition-colors transform translate-y-8 opacity-0 flex items-center gap-4 p-0 bg-transparent border-none justify-center text-center leading-none appearance-none"
+                >
+                    More
+                    <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+
+                <div id="mobile-more-menu" class="flex flex-col max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] origin-top">
+                    <div class="pt-8 flex flex-col gap-6">
+                        {% for item in site.data.owner.navigation offset:5 %}
+                        <a 
+                            href="{{ item.url | relative_url }}" 
+                            class="text-2xl sm:text-3xl font-display font-light text-gray-400 hover:text-white transition-colors block"
+                        >
+                            {{ item.title }}
+                        </a>
+                        {% endfor %}
+                        <a 
+                            href="{{ site.data.owner.config.google_calendar_appointment_url }}" 
+                            target="_blank"
+                            class="text-2xl sm:text-3xl font-display font-light text-gray-400 hover:text-white transition-colors inline-flex items-center justify-center gap-3"
+                        >
+                            <i class="fa-regular fa-calendar text-xl opacity-70"></i> Schedule a Call
+                        </a>
+
+                    </div>
+                </div>
+            </div>
             
             <a 
                 href="{{ '/contact' | relative_url }}" 
@@ -63,22 +158,33 @@
             </a>
 
             <!-- Mobile Socials -->
-            <div class="flex gap-6 mt-8 mobile-link transform translate-y-8 opacity-0">
-                {% if site.data.owner.socials.twitter %}
-                <a href="{{ site.data.owner.socials.twitter }}" target="_blank" class="text-white hover:text-primary transition-colors" aria-label="Twitter">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <div class="flex gap-6 mt-8 mobile-link transform translate-y-8 opacity-0 flex-wrap justify-center">
+                {% for social in site.data.owner.socials %}
+                {% if social[1] != "" %}
+                <a href="{{ social[1] }}" target="_blank" class="text-white hover:text-primary transition-colors block" aria-label="{{ social[0] | capitalize }}">
+                    {% assign platform = social[0] | downcase %}
+                    {% assign icon_class = 'fa-solid fa-link' %}
+                    
+                    {% if platform == 'twitter' or platform == 'x' %}
+                        {% assign icon_class = 'fab fa-x-twitter' %}
+                    {% elsif platform == 'github' %}
+                        {% assign icon_class = 'fab fa-github' %}
+                    {% elsif platform == 'linkedin' %}
+                        {% assign icon_class = 'fab fa-linkedin' %}
+                    {% elsif platform == 'instagram' %}
+                        {% assign icon_class = 'fab fa-instagram' %}
+                    {% elsif platform == 'youtube' %}
+                        {% assign icon_class = 'fab fa-youtube' %}
+                    {% elsif platform == 'behance' %}
+                        {% assign icon_class = 'fab fa-behance' %}
+                    {% elsif platform == 'reddit' %}
+                        {% assign icon_class = 'fab fa-reddit' %}
+                    {% endif %}
+                    
+                    <i class="{{ icon_class }} text-2xl"></i>
                 </a>
                 {% endif %}
-                {% if site.data.owner.socials.github %}
-                <a href="{{ site.data.owner.socials.github }}" target="_blank" class="text-white hover:text-primary transition-colors" aria-label="GitHub">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                </a>
-                {% endif %}
-                {% if site.data.owner.socials.linkedin %}
-                <a href="{{ site.data.owner.socials.linkedin }}" target="_blank" class="text-white hover:text-primary transition-colors" aria-label="LinkedIn">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -138,7 +244,9 @@
     });
 
     mobileLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+        if (!link.hasAttribute('data-no-close')) {
+            link.addEventListener('click', closeMenu);
+        }
     });
 
     // Scroll Effect for Navbar
@@ -152,5 +260,22 @@
             navBg.classList.remove('bg-background/80', 'backdrop-blur-lg', 'border-white/5');
         }
     });
+
+    // Mobile More Menu Toggle Transition
+    window.toggleMoreMenu = function(btn) {
+        const menu = document.getElementById('mobile-more-menu');
+        const icon = btn.querySelector('svg');
+        const isClosed = menu.classList.contains('max-h-0');
+        
+        if (isClosed) {
+            menu.classList.remove('max-h-0', 'opacity-0');
+            menu.classList.add('max-h-96', 'opacity-100');
+            icon.classList.add('rotate-180');
+        } else {
+            menu.classList.add('max-h-0', 'opacity-0');
+            menu.classList.remove('max-h-96', 'opacity-100');
+            icon.classList.remove('rotate-180');
+        }
+    };
 })();
 </script>

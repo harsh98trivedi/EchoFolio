@@ -25,26 +25,15 @@ Ensure you have the following installed:
 -   **Ruby & Jekyll**: [Installation Guide](https://jekyllrb.com/docs/installation/)
 -   **Node.js**: [Download](https://nodejs.org/) (Required for Tailwind CSS)
 
-### 2. Installation
+### 2. Installation & Running
 
-Clone the repository and install dependencies:
+Clone the repository and start the server. The `dev` command will automatically install all Ruby and Node dependencies for you.
 
 ```bash
 git clone https://github.com/your-username/echofolio.git
 cd echofolio
 
-# Install Ruby dependencies
-bundle install
-
-# Install Node dependencies
-npm install
-```
-
-### 3. Running Locally
-
-To start the development server (which handles both Jekyll and Tailwind updates):
-
-```bash
+# Install dependencies and start the server
 npm run dev
 ```
 

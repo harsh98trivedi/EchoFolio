@@ -1,0 +1,8 @@
+- from: /project
+  to: /projects
+- from: /blogs
+  to: /blog
+- from: /contacts
+  to: /contact
+- from: /link
+  to: /links

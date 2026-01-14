@@ -1,3 +1,7 @@
+- name: EchoFolio
+  link: https://github.com/harsh98trivedi/EchoFolio
+  image: https://raw.githubusercontent.com/harsh98trivedi/EchoFolio/refs/heads/master/assets/img/meta.jpg
+  description: Portfolio theme designed for developers, designers, and creative technologies
 - name: Will you be my Valentine?
   link: https://github.com/harsh98trivedi/ValentineFun
   image: https://github.com/harsh98trivedi/ValentineFun/raw/master/meta.jpg
