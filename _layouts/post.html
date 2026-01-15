@@ -28,6 +28,33 @@ description: Blog Description
     <div class="prose prose-invert prose-lg mx-auto mb-20">
         {{ content }}
     </div>
+
+    <!-- Post Navigation -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-6 my-6">
+        {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}" class="group flex flex-col text-left">
+            <span class="text-xs font-mono text-gray-500 mb-2 group-hover:text-primary transition-colors tracking-wider uppercase flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i> Previous
+            </span>
+            <span class="text-base md:text-lg font-display font-medium text-white/60 group-hover:text-white transition-colors line-clamp-2">
+                {{ page.previous.title }}
+            </span>
+        </a>
+        {% else %}
+        <div></div>
+        {% endif %}
+
+        {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}" class="group flex flex-col text-right items-end">
+            <span class="text-xs font-mono text-gray-500 mb-2 group-hover:text-primary transition-colors tracking-wider uppercase flex items-center gap-2">
+                Next <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+            </span>
+            <span class="text-base md:text-lg font-display font-medium text-white/60 group-hover:text-white transition-colors line-clamp-2">
+                {{ page.next.title }}
+            </span>
+        </a>
+        {% endif %}
+    </div>
 </article>
 
 <!-- Disqus Comments -->
