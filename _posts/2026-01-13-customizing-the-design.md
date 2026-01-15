@@ -1,10 +1,12 @@
 ---
-layout: post
 title: Styling with Tailwind in Echofolio
-subtitle: How to customize the look and feel of your portfolio
-categories: [Design, CSS]
-tags: [tailwind, css, design]
-image: https://i.imgur.com/qVmT4HR.jpeg
+post-image: https://i.imgur.com/qVmT4HR.jpeg
+description: How to customize the look and feel of your portfolio.
+layout: post
+tags:
+- tailwind
+- css
+- design
 ---
 
 Echofolio leverages **Tailwind CSS** to provide a highly customizable design system.

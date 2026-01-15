@@ -1,10 +1,12 @@
 ---
-layout: post
 title: Deploying Echofolio to Production
-subtitle: Launch your portfolio to the world with GitHub Pages
-categories: [Guide, Deployment]
-tags: [github pages, deployment, CI/CD]
-image: https://i.imgur.com/exrlVqI.jpeg
+post-image: https://i.imgur.com/exrlVqI.jpeg
+description: Launch your portfolio to the world with GitHub Pages.
+layout: post
+tags:
+- github pages
+- deployment
+- ci/cd
 ---
 
 Your portfolio is ready. Now let's share it with the world using GitHub Pages.

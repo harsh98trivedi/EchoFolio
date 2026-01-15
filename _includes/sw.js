@@ -50,9 +50,12 @@ if (workbox) {
     })
   );
 
-  // Cache Images
+  // Cache Images (excluding tracking pixels)
   workbox.routing.registerRoute(
-    ({request}) => request.destination === 'image',
+    ({request, url}) => request.destination === 'image' && 
+                        !url.hostname.includes('viglink.com') && 
+                        !url.hostname.includes('disqus.com') && 
+                        !url.hostname.includes('pippio.com'),
     new workbox.strategies.CacheFirst({
       cacheName: 'images',
       plugins: [

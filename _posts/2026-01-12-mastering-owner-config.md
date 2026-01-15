@@ -1,10 +1,12 @@
 ---
-layout: post
 title: Mastering the Owner Configuration
-subtitle: Control your entire site from one file
-categories: [Tutorial, Configuration]
-tags: [owner.yml, configuration, customization]
-image: https://i.imgur.com/WQSqmdX.jpeg
+post-image: https://i.imgur.com/WQSqmdX.jpeg
+description: Control your entire site from one file.
+layout: post
+tags:
+- owner.yml
+- configuration
+- customization
 ---
 
 The heart of Echofolio is `_data/owner.yml`. This file allows you to control almost every aspect of your site without touching a line of HTML.
