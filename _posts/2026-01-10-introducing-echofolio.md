@@ -4,22 +4,24 @@ title: Introducing Echofolio
 subtitle: The Premium Portfolio Theme for Modern Developers
 categories: [General, Announcement]
 tags: [portfolio, echofolio, jekyll]
-image: https://i.imgur.com/vIiZEpa.jpeg
+image: /assets/img/blog/introducing-echofolio.jpeg
 ---
 
-Welcome to **Echofolio**, a high-performance, data-driven portfolio theme designed specifically for developers, designers, and creative technologists.
+Welcome to **Echofolio**, a high-performance, data-driven portfolio theme designed specifically for developers, designers, and creative technologies.
 
-In a world where your online presence is your resume, Echofolio helps you stand out with a sleek, dark-mode aesthetic, smooth interactions, and a codebase that is a joy to work with.
+## The Vision
 
-## Why Echofolio?
+In a world where your online presence is your resume, Echofolio helps you stand out. We wanted to build something that wasn't just a static list of projects, but a dynamic reflection of your skills and personality.
 
-We built Echofolio to solve a common problem: portfolio themes are either too simple and ugly, or too complex and hard to maintain. Echofolio strikes the perfect balance.
+## Key Features
 
-### Key Features
+*   **Data-Driven**: Manage content via `_data/owner.yml`. No HTML editing needed.
+*   **Tailwind CSS**: Utility-first styling for rapid customization.
+*   **Performance**: Optimized assets and Lighthouse-ready structure.
+*   **Developer Focused**: Built-in Devicon support and code syntax highlighting.
 
-*   **Data-Driven**: You don't need to dig into HTML templates to update your content. Everything is managed via a single `_data/owner.yml` file.
-*   **Built with Tailwind CSS**: Customizing the design is as easy as adding utility classes.
-*   **Performance First**: We achieve high Lighthouse scores out of the box.
-*   **Developer Focused**: Integration with Devicon for your tech stack and optimal SEO practices.
+## Why Jekyll?
 
-Stay tuned for our upcoming posts where we guide you through setting up and customizing your new portfolio!
+We chose Jekyll for its stability, security, and native support on GitHub Pages. Combined with Tailwind, it offers the best of both static site generation and modern styling.
+
+Stay tuned as we dive deeper into the features of Echofolio!

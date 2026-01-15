@@ -7,47 +7,44 @@ tags: [owner.yml, configuration, customization]
 image: https://i.imgur.com/WQSqmdX.jpeg
 ---
 
-One of the most powerful features of Echofolio is its centralized configuration. Instead of editing dozens of HTML files, you manage your content in `_data/owner.yml`.
+The heart of Echofolio is `_data/owner.yml`. This file allows you to control almost every aspect of your site without touching a line of HTML.
 
-## The `owner.yml` File
-
-This file acts as the database for your portfolio. Here is what you can control:
+## The `owner.yml` Structure
 
 ### 1. Identity
-Set your name, tagline, and bio here.
+Configure your personal brand:
 ```yaml
-name: "Jane Doe"
+name: "Alex Doe"
 tagline: "Full Stack Developer"
 avatar: "assets/img/me.jpg"
+bio_short: "Building digital experiences."
 ```
 
 ### 2. Social Links
-Add links to your social profiles. If you leave a value empty, the icon automatically disappears from the site.
+Add your profiles. Leaving a link empty hides the icon:
 ```yaml
 socials:
-  github: "https://github.com/janedoe"
-  twitter: "" # This will be hidden
-  linkedin: "https://linkedin.com/in/janedoe"
+  github: "https://github.com/alexdoe"
+  twitter: "" # Hidden
+  linkedin: "https://linkedin.com/in/alexdoe"
 ```
 
 ### 3. Skills Matrix
-Showcase your tech stack using [Devicon](https://devicon.dev/) identifiers.
+Define your tech stack using Devicon class names:
 ```yaml
 skills:
   - category: "Frontend"
     items:
       - name: "React"
         icon: "devicon-react-original"
-      - name: "Tailwind"
-        icon: "devicon-tailwindcss-plain"
 ```
 
-### 4. UI Text
-You can even rename sections of your website without touching the code:
+### 4. UI Customization
+Rename sections to match your voice:
 ```yaml
 ui:
-  contact_title: "Get in Touch"
+  contact_title: "Let's Talk"
   projects_title: "My Work"
 ```
 
-By keeping content separate from code, Echofolio allows you to focus on what matters: your work and your story.
+This data-driven approach keeps your content clean and your code maintainable.

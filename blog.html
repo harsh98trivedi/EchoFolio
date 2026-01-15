@@ -39,7 +39,7 @@ title: Blog
                         {% if post_image contains 'http' %}
                         <img src="{{ post_image }}" alt="{{ post.title }}" class="w-full h-full object-cover" loading="lazy" width="600" height="375">
                         {% else %}
-                        <img src="{{ post_image }}" alt="{{ post.title }}" class="w-full h-full object-cover" loading="lazy" width="600" height="375">
+                        <img src="{{ post_image | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover" loading="lazy" width="600" height="375">
                         {% endif %}
                         {% else %}
                         <div class="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">

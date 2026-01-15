@@ -7,30 +7,30 @@ tags: [github pages, deployment, CI/CD]
 image: https://i.imgur.com/exrlVqI.jpeg
 ---
 
-You have built it, customized it, and added your projects. Now it is time to show it to the world.
+Your portfolio is ready. Now let's share it with the world using GitHub Pages.
 
-## GitHub Pages Deployment
+## Recommended Workflow: GitHub Actions
 
-Echofolio is optimized for GitHub Pages. Here is the recommended workflow:
+Since Echofolio uses Tailwind CSS (requiring Node.js build steps), the standard GitHub Pages build needs a custom workflow.
 
-1.  **Repository Name**: Ensure your repository is named `username.github.io`. This sets up your primary GitHub user site.
+1.  **Repository Setup**: Name your repo `username.github.io`.
+2.  **Enable Pages**: Go to **Settings > Pages** and set source to "GitHub Actions".
+3.  **The Workflow**: We provide a pre-configured `.github/workflows/deploy.yml` that handles:
+    *   Node.js setup & dependency installation
+    *   Ruby setup
+    *   Asset compilation (`npm run build`)
+    *   Jekyll build and deployment
 
-2.  **Enable Pages**: Go to your repository **Settings > Pages**.
+### Troubleshooting Deployment
 
-3.  **Source Selection**:
-    *   **Option A: GitHub Actions (Recommended)**
-        Since we use Tailwind CSS (Node.js) and standard Jekyll plugins, the default GitHub Pages builder might fail. We recommend using a GitHub Action to build the site and deploy the `_site` directory.
-    *   **Option B: Manual Build**:
-        Build the site locally with `npm run build` (this compiles both Tailwind assets and Jekyll). Then, push the contents of the `_site` folder to a `gh-pages` branch.
+If you encounter errors like `bundle: not found` in your generic or local build scripts, ensure that your environment sets up Ruby **before** running the build command. Our included workflow expects this sequence.
 
-4.  **Custom Domain**:
-    If you have a custom domain (e.g., `www.yourname.com`), add it in the Pages settings. GitHub will automatically provision an HTTPS certificate for you.
+### Manual Deployment
 
-## SEO Checklist
+Alternatively, you can build locally:
+```bash
+npm run build
+```
+Then push the `_site` folder contents to a `gh-pages` branch.
 
-Before you share your link, make sure you have:
-*   Updated `_data/owner.yml` with your real info.
-*   Added a proper `title` and `description` in `_config.yml`.
-*   Replaced the default favicon/logo in `assets/img`.
-
-Congratulations! You are now live. Share your new Echofolio site with the world!
+Congratulations on launching your new Echofolio site!
