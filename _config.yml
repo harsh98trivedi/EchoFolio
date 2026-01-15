@@ -1,4 +1,6 @@
 permalink: /blog/:title/
+future: true
+timezone: null
 # SASS
 sass:
   style: compressed
