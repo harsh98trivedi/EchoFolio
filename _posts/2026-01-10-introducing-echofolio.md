@@ -4,7 +4,7 @@ title: Introducing Echofolio
 subtitle: The Premium Portfolio Theme for Modern Developers
 categories: [General, Announcement]
 tags: [portfolio, echofolio, jekyll]
-image: /assets/img/blog/introducing-echofolio.jpeg
+image: https://i.imgur.com/vIiZEpa.jpeg
 ---
 
 Welcome to **Echofolio**, a high-performance, data-driven portfolio theme designed specifically for developers, designers, and creative technologies.

@@ -4,7 +4,7 @@ title: Getting Started with Echofolio
 subtitle: A complete guide to installing and running your new portfolio
 categories: [Tutorial, Setup]
 tags: [installation, guide, jekyll]
-image: /assets/img/blog/installation.jpeg
+image: https://i.imgur.com/emQCqGS.jpeg
 ---
 
 Ready to build your new portfolio? Getting started with Echofolio is efficient and straightforward.
