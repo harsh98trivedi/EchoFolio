@@ -1,3 +1,6 @@
+baseurl: "/EchoFolio"
+url: "https://harsh98trivedi.github.io"
+
 permalink: /blog/:title/
 # SASS
 sass:
