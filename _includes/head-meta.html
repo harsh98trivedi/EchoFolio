@@ -10,7 +10,7 @@
 <!-- Open Graph general (Facebook, Pinterest & Google+) -->
 <meta name="og:title" content="{{ site.data.owner.name }}{% if page.title %} | {{ page.title }}{% endif %}">
 <meta name="og:description" content="{% unless page.layout == 'post' %}{{ site.data.owner.bio_short }}{% else %}{{ page.description }}{% endunless %}">
-<meta name="og:image" content="{% unless page.layout == 'post' %}{{ site.data.owner.avatar }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
+<meta name="og:image" content="{% unless page.layout == 'post' %}{{ site.data.owner.meta }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
 <meta name="og:image:alt" content="{{ site.data.owner.name }}{% if page.title %} | {{ page.title }}{% endif %}">
 <meta name="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
 {% if site.data.owner.socials.facebook %}
@@ -25,17 +25,17 @@
 <meta name="twitter:description" content="{% unless page.layout == 'post' %}{{ site.data.owner.bio_short }}{% else %}{{ page.description }}{% endunless %}">
 <meta name="twitter:site" content="@{{ site.data.owner.socials.twitter | split: '/' | last }}">
 <meta name="twitter:creator" content="@{{ site.data.owner.socials.twitter | split: '/' | last }}">
-<meta name="twitter:image:src" content="{% unless page.layout == 'post' %}{{ site.data.owner.avatar }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
+<meta name="twitter:image" content="{% unless page.layout == 'post' %}{{ site.data.owner.meta }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
 
 <!-- Search Engine -->
 <meta name="description" content="{% unless page.layout == 'post' %}{{ site.data.owner.bio_short }}{% else %}{{ page.description }}{% endunless %}">
-<meta name="image" content="{% unless page.layout == 'post' %}{{ site.data.owner.avatar }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
+<meta name="image" content="{% unless page.layout == 'post' %}{{ site.data.owner.meta }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
 
 <!-- Schema.org for Google -->
 <meta itemprop="name" content="{{ site.data.owner.name }}{% if page.title %} | {{ page.title }}{% endif %}">
 <meta name="author" content="{{ site.data.owner.name }}"/>
 <meta itemprop="description" content="{% unless page.layout == 'post' %}{{ site.data.owner.bio_short }}{% else %}{{ page.description }}{% endunless %}">
-<meta itemprop="image" content="{% unless page.layout == 'post' %}{{ site.data.owner.avatar }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
+<meta itemprop="image" content="{% unless page.layout == 'post' %}{{ site.data.owner.meta }}{% else %}{{ page.image | default: page['post-image'] }}{% endunless %}">
 
 <!-- Google Analytics (Production Only) -->
 {% if site.google_analytics and jekyll.environment == 'production' %}
@@ -50,9 +50,9 @@
 
 <!-- Favicon -->
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="{{ '/assets/img/logo.svg' | relative_url }}">
-<link rel="apple-touch-icon" href="{{ '/assets/img/logo.svg' | relative_url }}">
-<link rel="mask-icon" href="{{ '/assets/img/logo.svg' | relative_url }}" color="#ffffff">
+<link rel="icon" type="image/png" href="{{ '/assets/img/logo.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/img/logo.png' | relative_url }}">
+<link rel="mask-icon" href="{{ '/assets/img/logo.png' | relative_url }}" color="#ffffff">
 
 <!-- FontAwesome CDN (loaded async for performance) -->
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

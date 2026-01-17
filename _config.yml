@@ -1,6 +1,4 @@
 permalink: /blog/:title/
-future: true
-timezone: null
 # SASS
 sass:
   style: compressed
@@ -43,13 +41,4 @@ workbox:
     - "404.html"
 
 
-# Jekyll Compress HTML Configuration
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  ignore:
-    envs: []
-  blanklines: false
-  profile: false
-  startings: []
+
